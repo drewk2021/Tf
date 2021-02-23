@@ -32,6 +32,9 @@ SAVE_LAST = False
 BATCH_SIZE_TRAIN = 4
 BATCH_SIZE_TEST = 4
 
+
+"""
+# I don't have a gpu.
 devices = tf.config.list_physical_devices('GPU')
 if len(devices) > 0:
     print('[INFO] GPU is detected.')
@@ -39,6 +42,9 @@ if len(devices) > 0:
 else:
     print('[INFO] GPU not detected.')
     print('[INFO] GPU not detected.', file = fout, flush = True)
+"""
+
+
 print('[INFO] Done importing packages.')
 print('[INFO] Done importing packages.', file = fout, flush = True)
 
@@ -65,7 +71,7 @@ class Net():
         # Now, we flatten to one dimension, so we go to just length 108.
         self.model.add(layers.Dense(10))
         # Now we're at length 10, which is our number of classes.
-        self.optimizer = optimizers.SGD(lr=0.001, momentum=0.9)
+        self.optimizer = optimizers.SGD(lr=0.003, momentum=0.9) # learning rate is faster than 0.001, for quicker convergence
         self.loss = losses.MeanSquaredError()
         self.model.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
 

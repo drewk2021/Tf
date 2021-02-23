@@ -1,3 +1,52 @@
-[TIMER] Process Time: 21:30:01
-[INFO] GPU not detected.
-[INFO] Done importing packages.
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 30, 30, 6)         168
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 15, 15, 6)         0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 9, 9, 12)          3540
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 3, 3, 12)          0
+_________________________________________________________________
+flatten (Flatten)            (None, 108)               0
+_________________________________________________________________
+dense (Dense)                (None, 10)                1090
+=================================================================
+Total params: 4,798
+Trainable params: 4,798
+Non-trainable params: 0
+_________________________________________________________________
+
+2021-02-22 21:30:06.123943: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+Epoch 1/15
+12500/12500 [==============================] - 29s 2ms/step - loss: 0.0893 - accuracy: 0.1576 - val_loss: 0.0840 - val_accuracy: 0.2841
+Epoch 2/15
+12500/12500 [==============================] - 28s 2ms/step - loss: 0.0837 - accuracy: 0.2814 - val_loss: 0.0822 - val_accuracy: 0.3209
+Epoch 3/15
+12500/12500 [==============================] - 27s 2ms/step - loss: 0.0821 - accuracy: 0.3190 - val_loss: 0.0808 - val_accuracy: 0.3423
+Epoch 4/15
+12500/12500 [==============================] - 27s 2ms/step - loss: 0.0809 - accuracy: 0.3430 - val_loss: 0.0798 - val_accuracy: 0.3576
+Epoch 5/15
+12500/12500 [==============================] - 28s 2ms/step - loss: 0.0798 - accuracy: 0.3600 - val_loss: 0.0789 - val_accuracy: 0.3687
+Epoch 6/15
+12500/12500 [==============================] - 187s 15ms/step - loss: 0.0790 - accuracy: 0.3777 - val_loss: 0.0779 - val_accuracy: 0.3909
+Epoch 7/15
+12500/12500 [==============================] - 31s 2ms/step - loss: 0.0782 - accuracy: 0.3882 - val_loss: 0.0772 - val_accuracy: 0.3961
+Epoch 8/15
+12500/12500 [==============================] - 28s 2ms/step - loss: 0.0774 - accuracy: 0.4007 - val_loss: 0.0771 - val_accuracy: 0.3990
+Epoch 9/15
+12500/12500 [==============================] - 29s 2ms/step - loss: 0.0770 - accuracy: 0.4031 - val_loss: 0.0763 - val_accuracy: 0.4121
+Epoch 10/15
+12500/12500 [==============================] - 30s 2ms/step - loss: 0.0766 - accuracy: 0.4094 - val_loss: 0.0760 - val_accuracy: 0.4162
+Epoch 11/15
+12500/12500 [==============================] - 29s 2ms/step - loss: 0.0760 - accuracy: 0.4160 - val_loss: 0.0761 - val_accuracy: 0.4103
+Epoch 12/15
+12500/12500 [==============================] - 28s 2ms/step - loss: 0.0755 - accuracy: 0.4252 - val_loss: 0.0757 - val_accuracy: 0.4217
+Epoch 13/15
+12500/12500 [==============================] - 27s 2ms/step - loss: 0.0755 - accuracy: 0.4274 - val_loss: 0.0755 - val_accuracy: 0.4260
+Epoch 14/15
+12500/12500 [==============================] - 27s 2ms/step - loss: 0.0751 - accuracy: 0.4321 - val_loss: 0.0749 - val_accuracy: 0.4390
+Epoch 15/15
+12500/12500 [==============================] - 27s 2ms/step - loss: 0.0748 - accuracy: 0.4375 - val_loss: 0.0743 - val_accuracy: 0.4448
