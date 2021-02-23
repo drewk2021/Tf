@@ -82,7 +82,8 @@ class Net():
         
 
 
-        self.optimizer = optimizers.SGD(lr=0.003, momentum=0.9) # learning rate is faster than 0.001, for quicker convergence
+        #self.optimizer = optimizers.SGD(lr=0.003, momentum=0.9) # learning rate is faster than 0.001, for quicker convergence
+        self.optimizer = optimizers.SGD()
         self.loss = losses.MeanSquaredError() # MSE loss function
         self.model.compile(loss=self.loss, optimizer=self.optimizer, metrics=['accuracy'])
 
@@ -117,7 +118,18 @@ print(net)
 
 
 
-results = net.model.fit(trainX, trainY, validation_data=(testX, testY), shuffle = True, epochs = TRAIN_EPOCHS, batch_size = BATCH_SIZE_TRAIN, validation_batch_size = BATCH_SIZE_TEST, verbose = 1)
+def scheduler(epoch, lr):
+  if epoch < 10:
+    return lr
+  else:
+    return lr * tf.math.exp(-0.08) # exponential decline in learning rate after epoch 10 
+
+
+callback = tf.keras.callbacks.LearningRateScheduler(scheduler) #scheduling the learning rate for decline after 10 epochs
+# we expect to get closer and closer to the local minimum of the loss function as epochs pass
+
+
+results = net.model.fit(trainX, trainY, validation_data=(testX, testY), shuffle = True, epochs = TRAIN_EPOCHS, callbacks = [callback], batch_size = BATCH_SIZE_TRAIN, validation_batch_size = BATCH_SIZE_TEST, verbose = 1)
 
     
 
