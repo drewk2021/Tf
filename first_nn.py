@@ -100,8 +100,8 @@ print(net)
 results = net.model.fit(trainX, trainY, validation_data=(testX, testY), shuffle = True, epochs = TRAIN_EPOCHS, batch_size = BATCH_SIZE_TRAIN, validation_batch_size = BATCH_SIZE_TEST, verbose = 1)
 
 plt.figure()
-plt.plot(np.arange(0, 20), results.history['loss'])
-plt.plot(np.arange(0, 20), results.history['val_loss'])
-plt.plot(np.arange(0, 20), results.history['accuracy'])
-plt.plot(np.arange(0, 20), results.history['val_accuracy'])
+plt.plot(np.arange(0, 15), results.history['loss']) # 15 epochs
+plt.plot(np.arange(0, 15), results.history['val_loss'])
+plt.plot(np.arange(0, 15), results.history['accuracy'])
+plt.plot(np.arange(0, 15), results.history['val_accuracy'])
 plt.show()
