@@ -22,7 +22,7 @@ print("[TIMER] Process Time:", now)
 print("[TIMER] Process Time:", now, file = fout, flush = True)
 
 # File Location to load from
-MODEL_LOAD_PATH = ''
+MODEL_LOAD_PATH = None
 
 # File location to save from
 MODEL_SAVE_PATH = './cifar_net.pth'
@@ -52,7 +52,7 @@ print('[INFO] Done importing packages.', file = fout, flush = True)
 
 class Net():
     def __init__(self, input_shape, load_path):
-        if load_path != "": # no pre loaded model
+        if not load_path: # no pre loaded model
             # input_shape is assumed to be 4 dimensions: 1. Batch Size, 2. Image Width, 3. Image Height, 4. Number of Channels.
             # You might see this called "channels_last" format.
             self.model = models.Sequential()
