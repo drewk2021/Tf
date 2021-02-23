@@ -63,6 +63,7 @@ class Net():
             # Activation function is built right into the Conv2D function as a keyword argument.
             self.model.add(layers.Conv2D(6, 3, input_shape = input_shape, activation = 'relu'))
             # In our example, output from first Conv2D is 30 x 30 x 6.
+            self.model.add(layers.BatchNormalization()) # batch normalization layer
             # For MaxPooling2D, default strides is equal to pool_size.  Batch and layers are assumed to match whatever comes in.
             self.model.add(layers.MaxPooling2D(pool_size = 2))
             # In our example, we are now at 15 x 15 x 6.
@@ -117,7 +118,6 @@ print(net)
 
 
 results = net.model.fit(trainX, trainY, validation_data=(testX, testY), shuffle = True, epochs = TRAIN_EPOCHS, batch_size = BATCH_SIZE_TRAIN, validation_batch_size = BATCH_SIZE_TEST, verbose = 1)
-
 
     
 
